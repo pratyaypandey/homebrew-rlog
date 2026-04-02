@@ -13,11 +13,11 @@ class Worklog < Formula
 
   test do
     data_dir = testpath/"data"
-    env = { "WORKLOG_DATA_DIR" => data_dir.to_s }
+    ENV["WORKLOG_DATA_DIR"] = data_dir.to_s
 
     assert_match "worklog #{version}", shell_output("#{bin}/worklog --version")
-    assert_match "started ", shell_output(env, "#{bin}/worklog start brew-test --no-tmux")
-    assert_match "\"name\": \"brew-test\"", shell_output(env, "#{bin}/worklog list --json")
-    assert_match "stopped ", shell_output(env, "#{bin}/worklog stop")
+    assert_match "started ", shell_output("#{bin}/worklog start brew-test --no-tmux")
+    assert_match "\"name\": \"brew-test\"", shell_output("#{bin}/worklog list --json")
+    assert_match "stopped ", shell_output("#{bin}/worklog stop")
   end
 end
