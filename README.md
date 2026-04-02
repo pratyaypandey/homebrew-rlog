@@ -21,22 +21,25 @@ brew install worklog
 
 ## Release Process
 
-For `worklog` version `0.1.1`, this tap expects a GitHub release asset named `worklog-0.1.1.tar.gz` attached to the `v0.1.1` release in the `worklog` repository.
+For `worklog` version `0.1.1`, this tap uses the GitHub tag archive at:
 
-Generate that source tarball from the exact commit you tag:
+```text
+https://github.com/pratyaypandey/worklog/archive/refs/tags/v0.1.1.tar.gz
+```
+
+Compute the checksum for the published tag archive:
 
 ```bash
-git -C ../worklog archive --format=tar.gz --prefix=worklog-0.1.1/ v0.1.1 -o /tmp/worklog-0.1.1.tar.gz
-shasum -a 256 /tmp/worklog-0.1.1.tar.gz
+curl -L -o /tmp/worklog-v0.1.1.tar.gz https://github.com/pratyaypandey/worklog/archive/refs/tags/v0.1.1.tar.gz
+shasum -a 256 /tmp/worklog-v0.1.1.tar.gz
 ```
 
 Then:
 
 1. Create and push the `v0.1.1` tag in `worklog`.
 2. Create the GitHub release for `v0.1.1`.
-3. Upload `/tmp/worklog-0.1.1.tar.gz` as a release asset.
-4. Verify the checksum matches the value in `Formula/worklog.rb`.
-5. Push this tap repository.
+3. Verify the checksum matches the value in `Formula/worklog.rb`.
+4. Push this tap repository.
 
 ## Notes
 

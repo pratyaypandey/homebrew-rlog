@@ -1,8 +1,8 @@
 class Worklog < Formula
   desc "Terminal work session logging CLI"
   homepage "https://github.com/pratyaypandey/worklog"
-  url "https://github.com/pratyaypandey/worklog/releases/download/v0.1.1/worklog-0.1.1.tar.gz"
-  sha256 "3459934d08a6aad71e0fb27383e55b71f3e0f6aed3feda34e8c224d9226a417a"
+  url "https://github.com/pratyaypandey/worklog/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "816efd01708476a72f1c82b80a11de9eff53dc82d6feb74534a64df840dd4593"
   license "MIT"
 
   depends_on "rust" => :build
